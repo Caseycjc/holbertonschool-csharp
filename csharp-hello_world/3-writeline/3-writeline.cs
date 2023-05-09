@@ -1,2 +1,9 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("\"Programming is like building a multilingual puzzle");
+﻿using System;
+
+public class HelloWorld
+{
+    public static void Main()
+    {
+        Console.WriteLine("\"Programming is like building a multilingual puzzle");
+    }
+}
