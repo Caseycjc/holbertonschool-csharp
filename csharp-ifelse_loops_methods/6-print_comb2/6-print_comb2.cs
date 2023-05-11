@@ -10,7 +10,7 @@ class Program
             
             if (number < 99)
             {
-                Console.WriteLine(", ");
+                Console.Write(", ");
             }
         }
     }
