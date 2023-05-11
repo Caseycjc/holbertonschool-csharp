@@ -16,7 +16,7 @@ class Program
         }
         else if (lastDigit == 0)
         {
-            Console.WriteLine("0.");
+            Console.WriteLine("0");
         }
         else
         {
