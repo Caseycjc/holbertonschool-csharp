@@ -11,6 +11,6 @@ class Program
             numbers[number] = number.ToString("00");
         }
 
-        Console.Write(string.Join(", ", numbers));
+        Console.WriteLine(string.Join(", ", numbers));
     }
 }
