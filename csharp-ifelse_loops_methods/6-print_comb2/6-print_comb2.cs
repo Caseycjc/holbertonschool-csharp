@@ -12,6 +12,6 @@ class Program
             }
         }
 
-        Console.Write("89, \n");
+        Console.WriteLine("89, \n");
     }
 }
