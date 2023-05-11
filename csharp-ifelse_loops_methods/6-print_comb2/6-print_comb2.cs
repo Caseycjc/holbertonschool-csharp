@@ -14,8 +14,6 @@ class Program
                 count++;
             }
         }
-
-        Console.WriteLine("89");
     }
 }
 
