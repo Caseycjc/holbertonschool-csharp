@@ -4,14 +4,18 @@ class Program
 {
     static void Main(string[] args)
     {
-        for (int number = 0; number < 100; number++)
+        int count = 0;
+
+        for (int i = 0; i <= 9; i++)
         {
-            Console.Write(number.ToString("00"));
-            
-            if (number < 99)
+            for (int j = i + 1; j <= 9; j++)
             {
-                Console.Write(", ");
+                Console.Write($"{i}{j}, ");
+                count++;
             }
         }
+
+        Console.WriteLine("89");
     }
 }
+
