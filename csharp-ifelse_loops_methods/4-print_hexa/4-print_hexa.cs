@@ -6,7 +6,7 @@ class Program
     {
         for (int number = 0; number <= 98; number++)
         {
-            Console.WriteLine($"{number} = 0x{number:X}");
+            Console.WriteLine($"{number} = 0x{number:x}");
         }
     }
 }
