@@ -20,6 +20,7 @@ class Program
                 }
             }
         }
+        Console.WriteLine();
     }
 }
 
