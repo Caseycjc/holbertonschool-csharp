@@ -15,12 +15,14 @@ public class Array
         for (int i = 0; i < size; i++)
         {
             array[i] = i;
-            Console.Write(i + " ");
+            Console.Write(i + (i != size - 1 ? " " : ""));
         }
 
-        if (size == 0)
+        Console.WriteLine();
+        
+        if (size != 0)
         {
-            Console.WriteLine();
+            Console.WriteLine("Array Length: " + size);
         }
         
         return array;
