@@ -21,7 +21,6 @@ public class Array
         if (size != 0)
         {
             Console.WriteLine();
-            Console.WriteLine("Array Length: " + size);
         }
         else
         {
