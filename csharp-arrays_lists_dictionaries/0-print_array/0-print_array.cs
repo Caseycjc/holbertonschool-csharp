@@ -1,4 +1,5 @@
-﻿public class Array
+﻿using System;
+public class Array
 {
     public static int[] CreatePrint(int size)
     {
