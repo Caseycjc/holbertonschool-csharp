@@ -1,6 +1,4 @@
-﻿using System;
-
-public class Array
+﻿public class Array
 {
     public static int[] CreatePrint(int size)
     {
@@ -10,12 +8,6 @@ public class Array
             return null;
         }
 
-        if (size == 0)
-        {
-            Console.WriteLine();
-            return new int[0];
-        }
-
         int[] array = new int[size];
         for (int i = 0; i < size; i++)
         {
@@ -23,7 +15,9 @@ public class Array
             Console.Write(array[i] + " ");
         }
 
-        Console.WriteLine();
+        Console.Write("$");
+        Console.WriteLine("\nArray Length: " + array.Length + "$");
         return array;
     }
 }
+
