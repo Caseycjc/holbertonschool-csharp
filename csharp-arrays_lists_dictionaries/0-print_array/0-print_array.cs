@@ -18,11 +18,14 @@ public class Array
             Console.Write(i + (i != size - 1 ? " " : ""));
         }
 
-        Console.WriteLine();
-        
         if (size != 0)
         {
+            Console.WriteLine();
             Console.WriteLine("Array Length: " + size);
+        }
+        else
+        {
+            Console.WriteLine();
         }
         
         return array;
