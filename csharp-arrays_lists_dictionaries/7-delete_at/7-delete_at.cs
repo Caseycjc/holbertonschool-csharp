@@ -3,26 +3,19 @@ using System.Collections.Generic;
 
 public class List
 {
-    public static List<int> DeleteAt(List<int> myList, int index)
+    public static void DeleteAt(List<int> myList, int index)
     {
-        index--;
-
         if (index < 0 || index >= myList.Count)
         {
             Console.WriteLine("Index is out of range");
-            return myList;
+            return;
         }
-        
-        List<int> newList = new List<int>();
 
-        for (int i = 0; i < myList.Count; i++)
+        for (int i = index; i < myList.Count - 1; i++)
         {
-            if (i != index)
-            {
-                newList.Add(myList[i]);
-            }
+            myList[i] = myList[i + 1];
         }
 
-        return newList;
+        myList.RemoveAt(myList.Count - 1);
     }
 }
