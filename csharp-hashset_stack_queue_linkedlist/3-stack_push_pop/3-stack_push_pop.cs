@@ -21,18 +21,18 @@ public class MyStack
 
         if (containsSearch)
         {
-            Stack<string> tempStack = new Stack<string>();
+            Queue<string> tempQueue = new Queue<string>();
 
             while (aStack.Count > 0 && !aStack.Peek().Equals(search))
             {
-                tempStack.Push(aStack.Pop());
+                tempQueue.Enqueue(aStack.Pop());
             }
 
-            if (aStack.Count > 0) aStack.Pop();
+            aStack.Pop();
 
-            while (tempStack.Count > 0)
+            while (tempQueue.Count > 0)
             {
-                aStack.Push(tempStack.Pop());
+                aStack.Push(tempQueue.Dequeue());
             }
         }
 
