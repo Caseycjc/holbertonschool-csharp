@@ -21,23 +21,24 @@ public class MyStack
 
         if (containsSearch)
         {
-            Queue<string> tempQueue = new Queue<string>();
-
-            while (aStack.Count > 0 && !aStack.Peek().Equals(search))
-            {
-                tempQueue.Enqueue(aStack.Pop());
-            }
-
-            aStack.Pop();
-
-            while (tempQueue.Count > 0)
-            {
-                aStack.Push(tempQueue.Dequeue());
-            }
+            RemoveAndAdd(aStack, newItem, search);
+        }
+        else
+        {
+            aStack.Push(newItem);
         }
 
-        aStack.Push(newItem);
-
         return aStack;
+    }
+
+    private static void RemoveAndAdd(Stack<string> aStack, string newItem, string search)
+    {
+        string top = aStack.Pop();
+
+        if(!top.Equals(search))
+        {
+            RemoveAndAdd(aStack, newItem, search);
+        }
+        aStack.Push(newItem);
     }
 }
