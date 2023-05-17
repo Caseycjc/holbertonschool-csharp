@@ -8,7 +8,7 @@ public class Int
         try
         {
         int result = a / b;
-            Console.WriteLine(result);
+            Console.WriteLine($"{a} / {b} = {result}");
         }
         catch (DivideByZeroException)
         {
