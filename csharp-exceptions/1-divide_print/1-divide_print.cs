@@ -12,6 +12,7 @@ public static void divide(int a, int b)
     catch (DivideByZeroException)
     {
         Console.WriteLine("Cannot divide by zero");
+        Console.WriteLine($"{a} / {b} = {a / b}");
     }
     finally
     {
