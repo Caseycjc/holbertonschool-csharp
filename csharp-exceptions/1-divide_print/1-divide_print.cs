@@ -5,18 +5,18 @@ public class Int
 {
 public static void divide(int a, int b)
 {
+    int result = 0;
     try
     {
-        int result = a / b;
+        result = a / b;
     }
     catch (DivideByZeroException)
     {
         Console.WriteLine("Cannot divide by zero");
-        Console.WriteLine($"{a} / {b} = {a / b}");
     }
     finally
     {
-        Console.WriteLine($"{a} / {b} = {a / b}");
+        Console.WriteLine("{0} / {1} = {2}", a, b, result);
     }
 }
 }
