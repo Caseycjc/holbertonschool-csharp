@@ -23,11 +23,13 @@ public class List
                     else
                     {
                         Console.WriteLine("Cannot divide by zero");
+                        resultList.Add(0);
                     }
                 }
                 else
                 {
                     Console.WriteLine("Out of range");
+                    resultList.Add(0);
                 }
             }
         }
