@@ -12,9 +12,9 @@ public class List
             for (int i = 0; i < listLength; i++)
             {
                 int dividend = (i < list1.Count) ? list1[i] : 0;
-                int divisor = (i < list2.Count) ? list2[i] : 0;
+                int divisor = (i < list2.Count) ? list2[i] : 0; // Default divisor to 0 if out of range
 
-                if (i < list2.Count)
+                if (i < list1.Count)
                 {
                     if (divisor != 0)
                     {
@@ -26,7 +26,7 @@ public class List
                         resultList.Add(0);
                     }
                 }
-                else
+                else if (list2.Count > 0) // Add zeroes only if list1 is empty and list2 is non-empty
                 {
                     Console.WriteLine("Out of range");
                     resultList.Add(0);
