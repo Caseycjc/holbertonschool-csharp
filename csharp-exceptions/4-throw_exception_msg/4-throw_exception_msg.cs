@@ -2,8 +2,8 @@
 
 public class Except
 {
-    public static void Throw()
+    public static void ThrowMsg(string msg)
     {
-        throw new Exception("This is a thrown exception.");
+        throw new Exception(msg);
     }
 }
