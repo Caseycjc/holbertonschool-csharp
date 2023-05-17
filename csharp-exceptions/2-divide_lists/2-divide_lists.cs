@@ -12,21 +12,22 @@ public class List
             for (int i = 0; i < listLength; i++)
             {
                 int dividend = (i < list1.Count) ? list1[i] : 0;
-                int divisor = (i < list2.Count) ? list2[i] : 0; // Default divisor to 0 if out of range
+                int divisor = (i < list2.Count) ? list2[i] : 0;
 
-                if (divisor != 0)
+                if (i < list2.Count)
                 {
-                    resultList.Add(dividend / divisor);
-                }
-                else if (i >= list2.Count)
-                {
-                    Console.WriteLine("Out of range");
-                    resultList.Add(0); // Add zero to the resultList for out-of-range situation
+                    if (divisor != 0)
+                    {
+                        resultList.Add(dividend / divisor);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Cannot divide by zero");
+                    }
                 }
                 else
                 {
-                    Console.WriteLine("Cannot divide by zero");
-                    resultList.Add(0); // Add zero to the resultList for division by zero situation
+                    Console.WriteLine("Out of range");
                 }
             }
         }
