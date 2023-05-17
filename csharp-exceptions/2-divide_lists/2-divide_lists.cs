@@ -14,10 +14,9 @@ public class List
                 int dividend = (i < list1.Count) ? list1[i] : 0;
                 int divisor = (i < list2.Count) ? list2[i] : 0;
 
-                int result = 0;
                 if (divisor != 0)
                 {
-                    result = dividend / divisor;
+                    resultList.Add(dividend / divisor);
                 }
                 else if (i >= list2.Count)
                 {
@@ -27,8 +26,6 @@ public class List
                 {
                     Console.WriteLine("Cannot divide by zero");
                 }
-
-                resultList.Add(result);
             }
         }
         catch (ArgumentOutOfRangeException)
