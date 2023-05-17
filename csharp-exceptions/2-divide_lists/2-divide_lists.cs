@@ -5,39 +5,32 @@ public class List
 {
     public static List<int> Divide(List<int> list1, List<int> list2, int listLength)
     {
-        List<int> resultList = new List<int>();
-
-        try
+        List<int> sum = new List<int>();
+        for (int i = 0; i < listLength; i++)
         {
-            for (int i = 0; i < listLength; i++)
+            try
             {
-                int dividend = (i < list1.Count) ? list1[i] : 0;
-                int divisor = (i < list2.Count) ? list2[i] : 0; // Default divisor to 0 if out of range
-
-                if (i < list1.Count)
-                {
-                    if (divisor != 0)
-                    {
-                        resultList.Add(dividend / divisor);
-                    }
-                    else
-                    {
-                        Console.WriteLine("Cannot divide by zero");
-                        resultList.Add(0);
-                    }
-                }
-                else if (list2.Count > 0) // Add zeroes only if list1 is empty and list2 is non-empty
-                {
-                    Console.WriteLine("Out of range");
-                    resultList.Add(0);
-                }
+                sum.Add(div(list1[i], list2[i]));
+            }
+            catch (ArgumentOutOfRangeException)
+            {
+                Console.WriteLine("Out of range");
             }
         }
-        catch (ArgumentOutOfRangeException)
+        return sum;
+    }
+    static int div(int a, int b)
+    {
+        int sum = 0;
+        try
         {
-            Console.WriteLine("Out of range");
+            sum = a / b;
         }
-
-        return resultList;
+        catch (DivideByZeroException)
+        {
+            Console.WriteLine("Cannot divide by zero");
+            sum = 0;
+        }
+        return sum;
     }
 }
