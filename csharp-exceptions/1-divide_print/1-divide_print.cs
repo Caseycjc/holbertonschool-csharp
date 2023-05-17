@@ -16,7 +16,7 @@ public class Int
         }
         finally
         {
-            Console.WriteLine("Cleanup tasks are performed here.");
+            Console.WriteLine;
         }
     }
     
