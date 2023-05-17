@@ -16,7 +16,6 @@ public static void divide(int a, int b)
     finally
     {
         Console.WriteLine($"{a} / {b} = {a / b}");
-        Console.WriteLine("Cleanup tasks are performed here.");
     }
 }
 }
