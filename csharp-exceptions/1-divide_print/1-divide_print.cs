@@ -8,15 +8,15 @@ public class Int
         try
         {
         int result = a / b;
-        Console.WriteLine(result);
+            Console.WriteLine(result);
         }
-        catch (DivideByZeroException ex)
+        catch (DivideByZeroException)
         {
             Console.WriteLine("Error: Division by zero");
         }
         finally
         {
-        Console.WriteLine("Cleanup tasks are performed here.");
+            Console.WriteLine("Cleanup tasks are performed here.");
         }
     }
     
