@@ -7,7 +7,13 @@ namespace Enemies
     /// </summary>
     public class Zombie
     {
+        ///<summary>
+        /// public int
+        ///</summary>
         public int health;
+        ///<summary>
+        /// public constructor
+        ///</summary>
 
         public Zombie()
         {
