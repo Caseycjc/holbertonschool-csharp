@@ -1,5 +1,20 @@
 ﻿using System;
 
+///<summary>
+/// shape class
+///</summary>
+public class Shape
+{
+    /// <summary>
+    /// Computes the area of the shape.
+    /// </summary>
+    /// <returns>The area of the shape.</returns>
+    /// <exception cref="NotImplementedException">Thrown when the method is not implemented.</exception>
+    public virtual int Area()
+    {
+        throw new NotImplementedException("Area() is not implemented");
+    }
+}
 /// <summary>
 /// rectangle class that inherits from shape
 /// </summary>
