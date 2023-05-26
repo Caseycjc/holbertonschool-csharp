@@ -12,30 +12,18 @@ public class Obj
     /// <param name="myObj">The object to inspect.</param>
     public static void Print(object myObj)
     {
-        if (myObj == null)
+        string className = myObj.GetType().Name;
+
+        Console.WriteLine("{0} Properties:", className);
+        foreach (var item in myObj.GetType().GetProperties())
         {
-            Console.WriteLine("Object is null");
-            return;
+            Console.WriteLine(item.Name);
         }
 
-        Type type = myObj.GetType();
-
-        Console.WriteLine("Properties:");
-        foreach (PropertyInfo property in type.GetProperties())
+        Console.WriteLine("{0} Methods:", className);
+        foreach (var item in myObj.GetType().GetMethods())
         {
-            Console.WriteLine(property.Name);
-        }
-
-        Console.WriteLine("Methods:");
-        foreach (MethodInfo method in type.GetMethods())
-        {
-            // Exclude system defined methods
-            if (method.DeclaringType == typeof(object))
-            {
-                continue;
-            }
-
-            Console.WriteLine(method.Name);
+            Console.WriteLine(item.Name);
         }
     }
 }
