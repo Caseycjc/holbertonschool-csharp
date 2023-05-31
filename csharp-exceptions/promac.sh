@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
-dotnet new console -o "0-safe_list_print"
-dotnet build "0-safe_list_print"
+dotnet new console -o "4-throw_exception_msg"
+dotnet build "4-throw_exception_msg"
