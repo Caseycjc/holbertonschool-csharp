@@ -40,10 +40,7 @@ public class Queue<T>
     /// </summary>
     public Node Tail { get; private set; }
 
-    /// <summary>
-    /// The count of Nodes in the Queue.
-    /// </summary>
-    public int Count { get; private set; }
+    private int count;
 
     /// <summary>
     /// Constructor that initializes the Queue.
@@ -52,7 +49,7 @@ public class Queue<T>
     {
         Head = null;
         Tail = null;
-        Count = 0;
+        count = 0;
     }
 
     /// <summary>
@@ -73,14 +70,14 @@ public class Queue<T>
             Tail = node;
         }
 
-        Count++;
+        count++;
     }
 
     /// <summary>
     /// Method that returns the count of Nodes in the Queue.
     /// </summary>
-    public int CountNodes()
+    public int Count()
     {
-        return Count;
+        return count;
     }
 }
