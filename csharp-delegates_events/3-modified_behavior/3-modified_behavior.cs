@@ -123,3 +123,5 @@ public class Player
         System.Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 }
+/// <summary> CalculateModifier Delegate </summary>
+public delegate float CalculateModifier(float baseValue, Modifier modifier);
