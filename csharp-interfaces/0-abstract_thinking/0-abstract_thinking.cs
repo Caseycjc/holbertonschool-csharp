@@ -4,9 +4,9 @@
 public abstract class Base
 {
     /// <summary>
-    /// Gets or sets the name.
+    /// public name
     /// </summary>
-    public string Name { get; set; }
+    public string name;
 
     /// <summary>
     /// Converts the value of this instance to its equivalent string representation.
