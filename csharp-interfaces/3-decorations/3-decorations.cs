@@ -13,7 +13,7 @@ public class Decoration : Base, IInteractive, IBreakable
     /// <summary>
     /// Gets or sets the durability of this decoration.
     /// </summary>
-    public int Durability { get; set; }
+    public int durability { get; set; }
 
     /// <summary>
     /// Initializes a new instance of the <see cref="Decoration"/> class.
