@@ -105,6 +105,7 @@ public class Player
     {
         switch (modifier)
         {
+            ///<summary not very effective </summary>
             case Modifier.Weak:
                 return baseValue / 2;
             case Modifier.Strong:
