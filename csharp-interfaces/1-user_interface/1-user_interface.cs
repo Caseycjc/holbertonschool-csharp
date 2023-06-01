@@ -33,7 +33,7 @@ public interface ICollectable
     /// <summary>
     /// Property indicating whether the object has been collected.
     /// </summary>
-    bool IsCollected { get; set; }
+    bool isCollected { get; set; }
 
     /// <summary>
     /// Method to be implemented for collecting an object.

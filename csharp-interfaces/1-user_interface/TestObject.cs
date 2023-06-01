@@ -13,7 +13,7 @@ public class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// <summary>
     /// Property indicating whether the object has been collected.
     /// </summary>
-    public bool IsCollected { get; set; }
+    public bool isCollected { get; set; }
 
     /// <summary>
     /// Method for interaction.
