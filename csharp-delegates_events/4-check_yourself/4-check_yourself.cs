@@ -1,19 +1,19 @@
 ﻿using System;
 
 /// <summary>
-/// Event arguments that contain the player's current health points.
+/// EventArgs derived class which contains the current health of the Player.
 /// </summary>
 public class CurrentHPArgs : EventArgs
 {
     /// <summary>
-    /// The current health points of the player.
+    /// Gets the current health points.
     /// </summary>
     public float currentHp { get; }
 
     /// <summary>
-    /// Initializes a new instance of the CurrentHPArgs class.
+    /// Initializes a new instance of CurrentHPArgs.
     /// </summary>
-    /// <param name="newHp">The current health points of the player.</param>
+    /// <param name="newHp">Current health points.</param>
     public CurrentHPArgs(float newHp)
     {
         currentHp = newHp;
@@ -21,23 +21,33 @@ public class CurrentHPArgs : EventArgs
 }
 
 /// <summary>
-/// Represents a Player with health points.
+/// Player class for handling player actions.
 /// </summary>
 public class Player
 {
-    // Delegate to calculate health.
-    public delegate void CalculateHealth(float amount);
-    // Delegate to calculate modified value.
-    public delegate float CalculateModifier(float baseValue, Modifier modifier);
-
-    // Event triggered when health points are validated.
-    public event EventHandler<CurrentHPArgs> HPCheck;
-
     private string name;
     private float maxHp;
     private float hp;
     private string status;
 
+    /// <summary>
+    /// Delegate to calculate health.
+    /// </summary>
+    public delegate void CalculateHealth(float amount);
+
+    /// <summary>
+    /// Delegate to calculate modifier.
+    /// </summary>
+    public delegate float CalculateModifier(float baseValue, Modifier modifier);
+
+    /// <summary>
+    /// Event triggered when health points are validated.
+    /// </summary>
+    public event EventHandler<CurrentHPArgs> HPCheck;
+
+    /// <summary>
+    /// Constructor for Player.
+    /// </summary>
     public Player(string name = "Player", float maxHp = 100f)
     {
         this.name = name;
@@ -52,11 +62,17 @@ public class Player
         HPCheck += CheckStatus;
     }
 
+    /// <summary>
+    /// Print the current health of the player.
+    /// </summary>
     public void PrintHealth()
     {
         Console.WriteLine($"{name} has {hp} / {maxHp} health");
     }
 
+    /// <summary>
+    /// Damage the player.
+    /// </summary>
     public void TakeDamage(float damage)
     {
         if (damage < 0f)
@@ -67,6 +83,9 @@ public class Player
         ValidateHP(hp - damage);
     }
 
+    /// <summary>
+    /// Heal the player.
+    /// </summary>
     public void HealDamage(float heal)
     {
         if (heal < 0f)
@@ -77,12 +96,18 @@ public class Player
         ValidateHP(hp + heal);
     }
 
+    /// <summary>
+    /// Validate the health points.
+    /// </summary>
     public void ValidateHP(float newHp)
     {
         hp = Math.Clamp(newHp, 0, maxHp);
         HPCheck?.Invoke(this, new CurrentHPArgs(hp));
     }
 
+    /// <summary>
+    /// Checks the status of the player.
+    /// </summary>
     private void CheckStatus(object sender, CurrentHPArgs e)
     {
         if (e.currentHp == maxHp)
@@ -108,7 +133,10 @@ public class Player
         Console.WriteLine(status);
     }
 
-    public float ApplyModifier(float baseValue, Modifier modifier)
+    /// <summary>
+    /// Applies the modifier to a base value.
+    /// </summary>
+    public static float ApplyModifier(float baseValue, Modifier modifier)
     {
         switch (modifier)
         {
@@ -123,6 +151,9 @@ public class Player
     }
 }
 
+/// <summary>
+/// Enum to determine the strength of an attack.
+/// </summary>
 public enum Modifier
 {
     Weak,
