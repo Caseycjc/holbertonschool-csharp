@@ -26,7 +26,7 @@ public class Decoration : Base, IInteractive, IBreakable
         }
 
         this.name = name;
-        Durability = durability;
+        this.durability = durability;
         IsQuestItem = isQuestItem;
     }
 
@@ -35,7 +35,7 @@ public class Decoration : Base, IInteractive, IBreakable
     /// </summary>
     public void Interact()
     {
-        if (Durability <= 0)
+        if (durability <= 0)
         {
             Console.WriteLine($"The {name} has been broken.");
         }
@@ -54,13 +54,13 @@ public class Decoration : Base, IInteractive, IBreakable
     /// </summary>
     public void Break()
     {
-        Durability--;
+        durability--;
 
-        if (Durability > 0)
+        if (durability > 0)
         {
             Console.WriteLine($"You hit the {name}. It cracks.");
         }
-        else if (Durability == 0)
+        else if (durability == 0)
         {
             Console.WriteLine($"You smash the {name}. What a mess.");
         }
