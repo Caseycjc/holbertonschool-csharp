@@ -99,17 +99,17 @@ public class Player
     /// <summary>
     /// Applies a modifier to a base value.
     /// </summary>
-    /// <param name="baseValue">The base value to modify.</param>
-    /// <param name="modifier">The modifier to apply.</param>
     public float ApplyModifier(float baseValue, Modifier modifier)
     {
         switch (modifier)
         {
-            ///<summary not very effective </summary>
+            /// <summary not very effective </summary>
             case Modifier.Weak:
                 return baseValue / 2;
+            /// <summary> super effective </summary>
             case Modifier.Strong:
                 return baseValue * 1.5f;
+            /// <summary> effective </summary>
             case Modifier.Base:
             default:
                 return baseValue;
