@@ -6,7 +6,7 @@ public abstract class Base
     /// <summary>
     /// public name
     /// </summary>
-    public string name;
+    public string name { get; set; }
 
     /// <summary>
     /// Converts the value of this instance to its equivalent string representation.
