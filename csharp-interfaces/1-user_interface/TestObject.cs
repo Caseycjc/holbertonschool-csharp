@@ -8,7 +8,7 @@ public class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// <summary>
     /// Property representing the durability of an object.
     /// </summary>
-    public int Durability { get; set; }
+    public int durability { get; set; }
 
     /// <summary>
     /// Property indicating whether the object has been collected.
