@@ -1,5 +1,6 @@
 ﻿using System;
 
+/// <summary> VectorMath class </summary>
 public class VectorMath
 {
     /// <summary>
