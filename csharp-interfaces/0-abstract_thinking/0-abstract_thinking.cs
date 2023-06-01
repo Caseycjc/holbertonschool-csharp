@@ -13,6 +13,6 @@ public abstract class Base
     /// </summary>
     public override string ToString()
     {
-        return $"{Name} is a {GetType().Name}";
+        return string.Format("{0} is a {1}", name, this.GetType().ToString());
     }
 }
