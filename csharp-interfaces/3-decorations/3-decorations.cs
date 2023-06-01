@@ -6,9 +6,9 @@
 public class Decoration : Base, IInteractive, IBreakable
 {
     /// <summary>
-    /// Gets or sets a value indicating whether this decoration is a quest item.
+    /// Indicates whether this decoration is a quest item.
     /// </summary>
-    public bool IsQuestItem { get; set; }
+    public bool isQuestItem;
 
     /// <summary>
     /// Gets or sets the durability of this decoration.
@@ -18,6 +18,9 @@ public class Decoration : Base, IInteractive, IBreakable
     /// <summary>
     /// Initializes a new instance of the <see cref="Decoration"/> class.
     /// </summary>
+    /// <param name="name">The name of the decoration. If not provided, defaults to "Decoration".</param>
+    /// <param name="durability">The durability of the decoration. If not provided, defaults to 1. If 0 or less, an exception is thrown.</param>
+    /// <param name="isQuestItem">A value indicating whether this decoration is a quest item. If not provided, defaults to false.</param>
     public Decoration(string name = "Decoration", int durability = 1, bool isQuestItem = false)
     {
         if (durability <= 0)
@@ -27,7 +30,7 @@ public class Decoration : Base, IInteractive, IBreakable
 
         this.name = name;
         this.durability = durability;
-        IsQuestItem = isQuestItem;
+        this.isQuestItem = isQuestItem;
     }
 
     /// <summary>
@@ -39,7 +42,7 @@ public class Decoration : Base, IInteractive, IBreakable
         {
             Console.WriteLine($"The {name} has been broken.");
         }
-        else if (IsQuestItem)
+        else if (isQuestItem)
         {
             Console.WriteLine($"You look at the {name}. There's a key inside.");
         }
