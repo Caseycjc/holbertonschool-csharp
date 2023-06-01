@@ -20,7 +20,7 @@ public class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// </summary>
     public void Interact()
     {
-        // Implement the method here.
+        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -28,7 +28,7 @@ public class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// </summary>
     public void Break()
     {
-        // Implement the method here.
+        throw new NotImplementedException();
     }
 
     /// <summary>
@@ -36,6 +36,6 @@ public class TestObject : Base, IInteractive, IBreakable, ICollectable
     /// </summary>
     public void Collect()
     {
-        // Implement the method here.
+        throw new NotImplementedException();
     }
 }
