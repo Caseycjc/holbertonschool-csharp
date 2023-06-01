@@ -3,6 +3,9 @@
 /// </summary>
 public class Player
 {
+    /// <summary>
+    /// Health Value.
+    /// </summary>
     public delegate void CalculateHealth(float amount);
 
     /// <summary>
