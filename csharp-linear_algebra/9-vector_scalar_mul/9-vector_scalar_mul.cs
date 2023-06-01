@@ -1,4 +1,7 @@
-﻿public class VectorMath
+﻿/// <summary>
+/// VectorMath Class
+/// </summary>
+public class VectorMath
 {
     /// <summary>
     /// Multiplies a vector by a scalar and returns the resulting vector.
