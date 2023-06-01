@@ -17,7 +17,7 @@ public interface IBreakable
     /// <summary>
     /// Property representing the durability of an object.
     /// </summary>
-    int Durability { get; set; }
+    int durability { get; set; }
 
     /// <summary>
     /// Method to be implemented for breaking an object.
