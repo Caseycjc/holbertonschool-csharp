@@ -7,7 +7,7 @@
 public class MatrixMath
 {
     /// <summary>
-    /// Rotates a 2D square matrix by a given angle in radians.
+    /// Rotates each individual value in a 2D square matrix around 0 by a given angle in the complex plane.
     /// </summary>
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
@@ -36,10 +36,10 @@ public class MatrixMath
 
                 // Rotate the complex number by multiplying it with (cos(θ) + i*sin(θ)).
                 double rotatedRealPart = realPart * cosTheta - imaginaryPart * sinTheta;
-                double rotatedImaginaryPart = realPart * sinTheta + imaginaryPart * cosTheta;
+                //double rotatedImaginaryPart = realPart * sinTheta + imaginaryPart * cosTheta;
 
-                // Calculate the magnitude of the rotated complex number and round it to the nearest hundredth.
-                rotatedMatrix[i, j] = Math.Round(Math.Sqrt(rotatedRealPart * rotatedRealPart + rotatedImaginaryPart * rotatedImaginaryPart), 2);
+                // Store the real part of the rotated complex number, rounded to the nearest hundredth.
+                rotatedMatrix[i, j] = Math.Round(rotatedRealPart, 2);
             }
         }
 
