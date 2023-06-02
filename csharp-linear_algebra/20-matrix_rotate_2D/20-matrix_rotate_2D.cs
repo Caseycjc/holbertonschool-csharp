@@ -8,44 +8,40 @@
 public class MatrixMath
 {
     /// <summary>
-    /// Rotates a square 2D matrix by a given angle in radians and returns the resulting matrix.
+    /// Rotates a 2D square matrix by a given angle in radians.
     /// </summary>
-    public static double[,] Rotate2D(double[,] matrix, double angle)
+    public static double[,,] Rotate2D(double[,] matrix, double angle)
     {
         int rows = matrix.GetLength(0);
-        int columns = matrix.GetLength(1);
+        int cols = matrix.GetLength(1);
 
-        // Check if the matrix is square
-        if (rows != columns)
+        // Check if the matrix is square.
+        if (rows != cols)
         {
-            return new double[,] { { -1 } };
+            return new double[1, 1, 2] { { { -1, -1 } } };
         }
 
-        // Check if the matrix is of a valid size
-        if (rows != 2)
-        {
-            return new double[,] { { -1 } };
-        }
+        double[,,] rotatedMatrix = new double[rows, cols, 2];
 
-        double[,] result = new double[rows, columns];
+        double cosTheta = Math.Cos(angle);
+        double sinTheta = Math.Sin(angle);
 
-        // Calculate the rotation
-        double cosAngle = Math.Cos(angle);
-        double sinAngle = Math.Sin(angle);
-
-        // Apply rotation to each element in the matrix and round to the nearest hundredth
+        // Rotate each element of the matrix.
         for (int i = 0; i < rows; i++)
         {
-            for (int j = 0; j < columns; j++)
+            for (int j = 0; j < cols; j++)
             {
-                double x = matrix[i, 0] * cosAngle - matrix[i, 1] * sinAngle;
-                double y = matrix[i, 0] * sinAngle + matrix[i, 1] * cosAngle;
-                result[i, j] = Math.Round(x, 2);
-                matrix[i, 0] = x;
-                matrix[i, 1] = y;
+                // Consider each double in the input matrix as the real part of a complex number.
+                double realPart = matrix[i, j];
+                double imaginaryPart = 0;
+
+                // Rotate the complex number by multiplying it with (cos(θ) + i*sin(θ)).
+                // Then round the results to the nearest hundredth.
+                rotatedMatrix[i, j, 0] = Math.Round(realPart * cosTheta - imaginaryPart * sinTheta, 2); // real part
+                rotatedMatrix[i, j, 1] = Math.Round(realPart * sinTheta + imaginaryPart * cosTheta, 2); // imaginary part
             }
         }
 
-        return result;
+        return rotatedMatrix;
     }
 }
