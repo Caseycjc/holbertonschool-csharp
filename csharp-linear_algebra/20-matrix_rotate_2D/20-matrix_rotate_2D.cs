@@ -1,48 +1,44 @@
 ﻿using System;
+using System.Collections;
 
-///<summary>
+/// <summary>
 /// math class
 ///</summary>
-
 public class MatrixMath
 {
     /// <summary>
-    /// Rotates each individual value in a 2D square matrix around 0 by a given angle in the complex plane.
-    /// </summary>
+    /// Create a method that rotates a square 2D matrix by a given angle in radians
+    ///</summary>
     public static double[,] Rotate2D(double[,] matrix, double angle)
     {
-        int rows = matrix.GetLength(0);
-        int cols = matrix.GetLength(1);
+        double cos = Math.Cos(angle);
+        double sin = Math.Sin(angle);
+        double[,] rotateMatrix = new double[,] {
+            {cos, sin},
+            {-sin, cos}
+        };
 
-        // Check if the matrix is square.
-        if (rows != cols)
+        if (matrix is double[,] && matrix.GetLength(0) == 2 && matrix.GetLength(1) == 2)
         {
-            return new double[1, 1] { { -1 } };
-        }
+            int rowM1 = matrix.GetLength(0);
+            int colM1 = matrix.GetLength(1);
+            int colM2 = rotateMatrix.GetLength(1);
+            int rowM2 = rotateMatrix.GetLength(0);
 
-        double[,] rotatedMatrix = new double[rows, cols];
+            double[,] mulMatrix = new double[rowM1, colM2];
 
-        double cosTheta = Math.Cos(angle);
-        double sinTheta = Math.Sin(angle);
-
-        // Rotate each element of the matrix.
-        for (int i = 0; i < rows; i++)
-        {
-            for (int j = 0; j < cols; j++)
+            for (int col = 0; col < colM1; col++)
             {
-                // Consider each double in the input matrix as the real part of a complex number.
-                double realPart = matrix[i, j];
-                double imaginaryPart = 0;
-
-                // Rotate the complex number by multiplying it with (cos(θ) + i*sin(θ)).
-                double rotatedRealPart = realPart * cosTheta - imaginaryPart * sinTheta;
-                //double rotatedImaginaryPart = realPart * sinTheta + imaginaryPart * cosTheta;
-
-                // Store the real part of the rotated complex number, rounded to the nearest hundredth.
-                rotatedMatrix[i, j] = Math.Round(rotatedRealPart, 2);
+                for (int row = 0; row < rowM1; row++)
+                {
+                    for (int ixj = 0; ixj < colM2; ixj++)
+                    {
+                        mulMatrix[row, ixj] = Math.Round(mulMatrix[row, ixj] + matrix[row, col] * rotateMatrix[col, ixj], 2);
+                    }
+                }
             }
+            return mulMatrix;
         }
-
-        return rotatedMatrix;
+        else  { return new double[,]{{-1}}; }
     }
 }
