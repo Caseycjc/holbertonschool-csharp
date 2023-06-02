@@ -4,6 +4,7 @@
 /// math class
 ///</summary>
 
+
 public class MatrixMath
 {
     /// <summary>
@@ -37,9 +38,11 @@ public class MatrixMath
         {
             for (int j = 0; j < columns; j++)
             {
-                double x = matrix[i, j] * cosAngle - matrix[i, (j + 1) % columns] * sinAngle;
-                double y = matrix[i, j] * sinAngle + matrix[i, (j + 1) % columns] * cosAngle;
+                double x = matrix[i, 0] * cosAngle - matrix[i, 1] * sinAngle;
+                double y = matrix[i, 0] * sinAngle + matrix[i, 1] * cosAngle;
                 result[i, j] = Math.Round(x, 2);
+                matrix[i, 0] = x;
+                matrix[i, 1] = y;
             }
         }
 
