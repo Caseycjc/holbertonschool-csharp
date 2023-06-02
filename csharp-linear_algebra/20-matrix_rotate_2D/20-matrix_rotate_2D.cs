@@ -37,8 +37,9 @@ public class MatrixMath
         {
             for (int j = 0; j < columns; j++)
             {
-                double rotatedValue = matrix[i, j] * cosAngle - matrix[i, (j + 1) % columns] * sinAngle;
-                result[i, j] = Math.Round(rotatedValue, 2);
+                double x = matrix[i, j] * cosAngle - matrix[i, (j + 1) % columns] * sinAngle;
+                double y = matrix[i, j] * sinAngle + matrix[i, (j + 1) % columns] * cosAngle;
+                result[i, j] = Math.Round(x, 2);
             }
         }
 
