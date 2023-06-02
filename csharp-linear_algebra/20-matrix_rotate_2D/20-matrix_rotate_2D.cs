@@ -4,13 +4,12 @@
 /// math class
 ///</summary>
 
-
 public class MatrixMath
 {
     /// <summary>
     /// Rotates a 2D square matrix by a given angle in radians.
     /// </summary>
-    public static double[,,] Rotate2D(double[,] matrix, double angle)
+    public static double[,] Rotate2D(double[,] matrix, double angle)
     {
         int rows = matrix.GetLength(0);
         int cols = matrix.GetLength(1);
@@ -18,10 +17,10 @@ public class MatrixMath
         // Check if the matrix is square.
         if (rows != cols)
         {
-            return new double[1, 1, 2] { { { -1, -1 } } };
+            return new double[1, 1] { { -1 } };
         }
 
-        double[,,] rotatedMatrix = new double[rows, cols, 2];
+        double[,] rotatedMatrix = new double[rows, cols];
 
         double cosTheta = Math.Cos(angle);
         double sinTheta = Math.Sin(angle);
@@ -36,9 +35,11 @@ public class MatrixMath
                 double imaginaryPart = 0;
 
                 // Rotate the complex number by multiplying it with (cos(θ) + i*sin(θ)).
-                // Then round the results to the nearest hundredth.
-                rotatedMatrix[i, j, 0] = Math.Round(realPart * cosTheta - imaginaryPart * sinTheta, 2); // real part
-                rotatedMatrix[i, j, 1] = Math.Round(realPart * sinTheta + imaginaryPart * cosTheta, 2); // imaginary part
+                double rotatedRealPart = realPart * cosTheta - imaginaryPart * sinTheta;
+                double rotatedImaginaryPart = realPart * sinTheta + imaginaryPart * cosTheta;
+
+                // Calculate the magnitude of the rotated complex number and round it to the nearest hundredth.
+                rotatedMatrix[i, j] = Math.Round(Math.Sqrt(rotatedRealPart * rotatedRealPart + rotatedImaginaryPart * rotatedImaginaryPart), 2);
             }
         }
 
