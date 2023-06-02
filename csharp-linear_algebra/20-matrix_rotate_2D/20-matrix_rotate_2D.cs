@@ -3,6 +3,7 @@
 ///<summary>
 /// math class
 ///</summary>
+
 public class MatrixMath
 {
     /// <summary>
@@ -31,12 +32,13 @@ public class MatrixMath
         double cosAngle = Math.Cos(angle);
         double sinAngle = Math.Sin(angle);
 
-        // Apply rotation to each element in the matrix
+        // Apply rotation to each element in the matrix and round to the nearest hundredth
         for (int i = 0; i < rows; i++)
         {
             for (int j = 0; j < columns; j++)
             {
-                result[i, j] = matrix[i, j] * cosAngle - matrix[i, (j + 1) % columns] * sinAngle;
+                double rotatedValue = matrix[i, j] * cosAngle - matrix[i, (j + 1) % columns] * sinAngle;
+                result[i, j] = Math.Round(rotatedValue, 2);
             }
         }
 
