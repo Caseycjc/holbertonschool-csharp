@@ -1,5 +1,7 @@
-﻿///<summary>
-/// matrixmath class
+﻿using System;
+
+///<summary>
+/// math class
 ///</summary>
 public class MatrixMath
 {
